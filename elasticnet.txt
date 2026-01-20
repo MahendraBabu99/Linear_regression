@@ -1,0 +1,63 @@
+ElasticNet / ElasticNetCV (Elastic Net Regression with Cross-Validation)
+Overview
+
+Elastic Net is a linear regression model that combines L1 regularization (Lasso) and L2 regularization (Ridge). It is designed to overcome the limitations of Lasso when features are highly correlated, while still providing feature selection.
+
+ElasticNetCV extends Elastic Net by using cross-validation to automatically select the best regularization strength (alpha) and mixing parameter (l1_ratio).
+
+Why Elastic Net is Used
+
+Handles correlated features better than Lasso
+
+Performs feature selection (via L1 penalty)
+
+Stabilizes coefficients (via L2 penalty)
+
+Automatically tunes hyperparameters with cross-validation
+
+How It Works
+
+A grid of alpha values and l1_ratio values is defined.
+
+For each combination:
+
+The model is trained using k-fold cross-validation
+
+Validation error is measured
+
+The best (alpha, l1_ratio) pair is selected.
+
+The final model is retrained on the full dataset.
+
+Objective Function
+
+Elastic Net minimizes the following loss function:
+
+wmin​n1​i=1∑n​(yi​−Xi​w)2+α[λj=1∑p​∣wj​∣+(1−λ)j=1∑p​wj2​]
+
+Where:
+
+𝑤
+w = model coefficients
+
+𝛼
+α = overall regularization strength
+
+𝜆
+λ (l1_ratio) controls L1 vs L2 balance
+
+l1_ratio = 1.0 → pure Lasso
+
+l1_ratio = 0.0 → pure Ridge
+
+Key Parameters
+
+alphas: Candidate regularization strengths (must be ≥ 0)
+
+l1_ratio: Mix of L1 and L2 penalties (0 to 1)
+
+cv: Number of cross-validation folds
+
+max_iter: Maximum optimization iterations
+
+n_jobs: Number of CPU cores
