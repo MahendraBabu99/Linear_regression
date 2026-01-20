@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 from sklearn.datasets import fetch_california_housing
+import numpy as np
 
 # Load data
 data = fetch_california_housing(as_frame=True)
@@ -49,4 +50,5 @@ y_pred = model.predict(X_test)
 # Evaluation
 print("R²:", r2_score(y_test, y_pred))
 print("MAE:", mean_absolute_error(y_test, y_pred))
-print("RMSE:", mean_squared_error(y_test, y_pred))
+
+print("RMSE:", np.srqt(mean_squared_error(y_test, y_pred)))
