@@ -37,71 +37,7 @@ Objective Function
 
 Lasso minimizes the following loss function:
 
-min
-⁡
-𝑤
-  
-1
-𝑛
-∑
-𝑖
-=
-1
-𝑛
-(
-𝑦
-𝑖
-−
-𝑋
-𝑖
-𝑤
-)
-2
-+
-𝛼
-∑
-𝑗
-=
-1
-𝑝
-∣
-𝑤
-𝑗
-∣
-w
-min
-	​
-
-n
-1
-	​
-
-i=1
-∑
-n
-	​
-
-(y
-i
-	​
-
-−X
-i
-	​
-
-w)
-2
-+α
-j=1
-∑
-p
-	​
-
-∣w
-j
-	​
-
-∣
+wmin​n1​i=1∑n​(yi​−Xi​w)2+αj=1∑p​∣wj​∣
 
 Where:
 
