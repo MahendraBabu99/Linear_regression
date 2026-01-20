@@ -1,0 +1,59 @@
+Orthogonal Matching Pursuit (OMP)
+Overview
+
+Orthogonal Matching Pursuit (OMP) is a greedy sparse regression algorithm used to build linear models with very few active features. Instead of shrinking coefficients through regularization, OMP explicitly selects features one at a time based on how strongly they are related to the target variable.
+
+OMP is widely used in feature selection, signal processing, and compressed sensing.
+
+Why OMP is Used
+
+Produces highly sparse models
+
+Performs explicit feature selection
+
+Easy to interpret
+
+Fast when only a small number of features are relevant
+
+How OMP Works
+
+OMP builds the model iteratively:
+
+Start with all coefficients equal to zero.
+
+Compute the correlation between each feature and the current residual.
+
+Select the feature with the highest absolute correlation.
+
+Add the selected feature to the active set.
+
+Recompute coefficients using least squares on selected features.
+
+Update the residual.
+
+Repeat until a stopping condition is met.
+
+Objective Formulation
+
+OMP solves the following constrained optimization problem:
+
+wmin​∥y−Xw∥22​subject to∥w∥0​≤k
+
+Where:
+
+𝑤
+w = model coefficients
+
+𝑘
+k = number of non-zero coefficients (sparsity level)
+
+
+Stopping Criteria
+
+OMP stops when one of the following is reached:
+
+A fixed number of features (n_nonzero_coefs)
+
+Residual error falls below a tolerance
+
+Maximum number of iterations is reached
