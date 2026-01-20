@@ -1,0 +1,61 @@
+Ridge / RidgeCV (Ridge Regression with Cross-Validation)
+Overview
+
+Ridge Regression is a linear regression model that uses L2 regularization to reduce overfitting by shrinking model coefficients toward zero. Unlike Lasso, Ridge does not perform feature elimination; instead, it keeps all features while stabilizing their contributions.
+
+RidgeCV extends Ridge Regression by using cross-validation to automatically select the optimal regularization strength (alpha).
+
+Why Ridge is Used
+
+Reduces overfitting in linear models
+
+Handles multicollinearity effectively
+
+Produces stable and smooth coefficient estimates
+
+Automatically selects alpha using cross-validation (RidgeCV)
+
+How It Works
+
+A set of candidate alpha values is defined.
+
+The training data is split into k folds.
+
+For each alpha:
+
+The model is trained on k-1 folds
+
+Validated on the remaining fold
+
+The validation error is averaged across folds.
+
+The alpha with the lowest error is selected.
+
+The final model is trained on the full dataset using the best alpha.
+
+Objective Function
+
+Ridge Regression minimizes the following loss function:
+
+wmin​n1​i=1∑n​(yi​−Xi​w)2+αj=1∑p​wj2​​
+
+
+Where:
+
+𝑤
+w = model coefficients
+
+𝛼
+α = regularization strength
+
+Larger alpha → stronger shrinkage
+
+Key Parameters
+
+alpha / alphas: Regularization strength(s), must be ≥ 0
+
+cv: Number of cross-validation folds (RidgeCV)
+
+scoring: Metric used to evaluate performance
+
+fit_intercept: Whether to fit an intercept term
