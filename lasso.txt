@@ -1,0 +1,124 @@
+LassoCV (Lasso Regression with Cross-Validation)
+Overview
+
+LassoCV is a linear regression model that combines L1 regularization (Lasso) with cross-validation to automatically select the optimal regularization strength (alpha). It is particularly useful for feature selection and preventing overfitting in high-dimensional datasets.
+
+Unlike standard Lasso, where alpha must be chosen manually, LassoCV evaluates multiple values of alpha and selects the best one based on cross-validation performance.
+
+Why LassoCV is Used
+
+Automatically selects the best alpha
+
+Reduces overfitting
+
+Performs feature selection by shrinking irrelevant coefficients to zero
+
+Eliminates manual hyperparameter tuning
+
+How It Works
+
+A range of alpha values is defined (usually on a logarithmic scale).
+
+The training data is split into k folds.
+
+For each alpha:
+
+The model is trained on k-1 folds
+
+Validated on the remaining fold
+
+The average validation error is computed.
+
+The alpha with the lowest error is selected.
+
+The final model is retrained using the best alpha on the full dataset.
+
+Objective Function
+
+Lasso minimizes the following loss function:
+
+min
+⁡
+𝑤
+  
+1
+𝑛
+∑
+𝑖
+=
+1
+𝑛
+(
+𝑦
+𝑖
+−
+𝑋
+𝑖
+𝑤
+)
+2
++
+𝛼
+∑
+𝑗
+=
+1
+𝑝
+∣
+𝑤
+𝑗
+∣
+w
+min
+	​
+
+n
+1
+	​
+
+i=1
+∑
+n
+	​
+
+(y
+i
+	​
+
+−X
+i
+	​
+
+w)
+2
++α
+j=1
+∑
+p
+	​
+
+∣w
+j
+	​
+
+∣
+
+Where:
+
+𝑤
+w = model coefficients
+
+𝛼
+α = regularization strength
+
+Larger alpha → stronger sparsity
+
+Key Parameters
+
+alphas: List of candidate regularization values (must be ≥ 0)
+
+cv: Number of cross-validation folds
+
+max_iter: Maximum number of optimization iterations
+
+n_jobs: Number of CPU cores used for cross-validation
