@@ -26,7 +26,8 @@ The preprocessing steps are fully integrated into the model pipeline
 
 🧠 Model
 
-Algorithm: Linear Regression,Redge
+Algorithm: Linear Regression,Redge,Lasso,ElasticNet
+
 
 Train–Test Split: 80% training, 20% testing
 
